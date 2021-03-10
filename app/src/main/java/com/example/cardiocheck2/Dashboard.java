@@ -17,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Dashboard extends AppCompatActivity {
-    TextView fullName;
+    TextView fullName, logoutUser;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
@@ -29,6 +29,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         fullName = findViewById(R.id.textView6);
+        logoutUser = findViewById(R.id.textView8);
         mUpload = findViewById(R.id.upload_btn);
         mDownload = findViewById(R.id.download_btn);
 
@@ -56,6 +57,15 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Download.class));
+            }
+        });
+
+        logoutUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fAuth.signOut();
+                startActivity(new Intent(getApplicationContext(), Login.class));
+
             }
         });
     }

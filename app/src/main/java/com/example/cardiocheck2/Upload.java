@@ -120,7 +120,7 @@ public class Upload extends AppCompatActivity {
                     return;
                 }
 
-                DocumentReference documentReference = fStore.collection("patients").document();
+                DocumentReference documentReference = fStore.collection("patients_details").document(id);
                 Map<String, Object> patient = new HashMap<>();
                 patient.put("ID", id);
                 patient.put("name", name);
@@ -196,7 +196,7 @@ public class Upload extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Map<String, String> objectMap = new HashMap<>();
                             objectMap.put("url", task.getResult().toString());
-                            fStore.collection("patients").document(mID.getText().toString()).set(objectMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            fStore.collection("ecg_images").document(mID.getText().toString()).set(objectMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(Upload.this, "Image is uploaded", Toast.LENGTH_SHORT).show();
