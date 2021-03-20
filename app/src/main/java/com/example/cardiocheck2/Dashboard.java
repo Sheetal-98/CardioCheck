@@ -21,7 +21,7 @@ public class Dashboard extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
-    Button mUpload, mDownload;
+    Button mUpload, mDownload, mUploadImages, mDownloadImages, mUploadFiles, mLoadFiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,10 @@ public class Dashboard extends AppCompatActivity {
         logoutUser = findViewById(R.id.textView8);
         mUpload = findViewById(R.id.upload_btn);
         mDownload = findViewById(R.id.download_btn);
+        mUploadImages = findViewById(R.id.upload_images_btn);
+        mDownloadImages = findViewById(R.id.download_images_btn);
+        mUploadFiles = findViewById(R.id.upload_files_btn);
+        mLoadFiles = findViewById(R.id.load_images_btn);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -57,6 +61,33 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Download.class));
+            }
+        });
+
+        mUploadImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), UploadImagesDashboard.class));
+            }
+        });
+
+        mDownloadImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Downloadimages.class));
+            }
+        });
+        mUploadFiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Uploadfilesdashboard.class));
+            }
+        });
+
+        mLoadFiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Loadfiles.class));
             }
         });
 

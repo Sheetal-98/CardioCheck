@@ -23,7 +23,7 @@ public class Download extends AppCompatActivity {
     FirebaseAuth dfAuth;
     FirebaseFirestore dfStore;
     EditText detid;
-    TextView dtvName, dtvAge, dtvGender, dtvContact, dtvBP, dtvSpO2, dtvDisease;
+    TextView dtvName, dtvAge, dtvGender, dtvContact, dtvBP, dtvSpO2, dtvDisease, dtvComments, dtvHospital;
     Button dtvDownload, dtvECG;
     String patientID;
 
@@ -42,6 +42,8 @@ public class Download extends AppCompatActivity {
         dtvDisease = findViewById(R.id.eDisease);
         dtvDownload = findViewById(R.id.downbutton);
         dtvECG = findViewById(R.id.ecgbutton);
+        dtvComments = findViewById(R.id.eComments);
+        dtvHospital = findViewById(R.id.eHospital);
 
         dfAuth = FirebaseAuth.getInstance();
         dfStore = FirebaseFirestore.getInstance();
@@ -82,6 +84,8 @@ public class Download extends AppCompatActivity {
                     dtvBP.setText(value.getString("BP"));
                     dtvSpO2.setText(value.getString("SpO2"));
                     dtvDisease.setText(value.getString("history"));
+                    dtvComments.setText(value.getString("comments"));
+                    dtvHospital.setText(value.getString("hospital"));
 
                 }
             });
