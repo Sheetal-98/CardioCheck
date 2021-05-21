@@ -90,6 +90,7 @@ public class Uploadimages extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uploadImages();
+                Toast.makeText(Uploadimages.this, "Image is being uploaded", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -197,6 +198,7 @@ public class Uploadimages extends AppCompatActivity {
                 String nameOfImage = mpatientID.getText().toString()+"."+getExtension(imageLocationPath1);
                 StorageReference imageRef = objectStorageReference1.child(nameOfImage);
 
+
                 UploadTask objectUploadTask = imageRef.putFile(imageLocationPath1);
                 objectUploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -211,6 +213,7 @@ public class Uploadimages extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Uri> task) {
                         if(task.isSuccessful()){
                             Map<String, String> objectMap = new HashMap<>();
+//                            objectMap.put("name1", mpatientID.getText().toString().trim());
                             objectMap.put("url", task.getResult().toString());
                             fStore1.collection("ecg_images").document(mpatientID.getText().toString()).set(objectMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

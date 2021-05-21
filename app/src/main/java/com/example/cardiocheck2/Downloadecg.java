@@ -80,12 +80,13 @@ public class Downloadecg extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         String linkOfImage = documentSnapshot.getString("url");
                         Glide.with(Downloadecg.this).load(linkOfImage).into(imageECGView);
+                        Toast.makeText(Downloadecg.this, "Wait for the file to be loaded", Toast.LENGTH_SHORT).show();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Downloadecg.this, "Failed to download image", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Downloadecg.this, "Failed to load image", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -107,7 +108,7 @@ public class Downloadecg extends AppCompatActivity {
             public void onSuccess(Uri uri) {
                 String url = uri.toString();
                 downloadFiles(Downloadecg.this, imagePID.getText().toString(), ".jpeg", DIRECTORY_DOWNLOADS,url);
-                Toast.makeText(Downloadecg.this, "File downloaded", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Downloadecg.this, "Download Started", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

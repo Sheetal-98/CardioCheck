@@ -16,7 +16,7 @@ public class Loadfiles extends AppCompatActivity {
         setContentView(R.layout.activity_loadfiles);
 
         mloadecgimages = findViewById(R.id.load_ecg_images_btn);
-        mloadotherimages = findViewById(R.id.load_other_images_btn);
+//        mloadotherimages = findViewById(R.id.load_other_images_btn);
 
         mloadecgimages.setOnClickListener(new View.OnClickListener() {
             @Override

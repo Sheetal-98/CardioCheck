@@ -124,11 +124,11 @@ public class Upload extends AppCompatActivity {
                     return;
                 }
                 if(TextUtils.isEmpty(comments)){
-                    mDisease.setError("Comments is required");
+                    mComments.setError("Comments is required");
                     return;
                 }
                 if(TextUtils.isEmpty(hospital)){
-                    mDisease.setError("Hospital name is required");
+                    mHospital.setError("Hospital name is required");
                     return;
                 }
 

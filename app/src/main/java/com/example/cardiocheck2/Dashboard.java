@@ -95,6 +95,7 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fAuth.signOut();
+                finish();
                 startActivity(new Intent(getApplicationContext(), Login.class));
 
             }

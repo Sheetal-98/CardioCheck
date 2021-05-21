@@ -26,14 +26,16 @@
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Name" />
+                    android:text="Name"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/linktextView"
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Download Link" />
+                    android:text="Download Link"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
@@ -44,6 +46,7 @@
                 android:layout_weight="1"
                 android:background="#D12D16"
                 android:text="Download"
+                android:textColor="@color/black"
                 app:backgroundTint="#D12D16" />
 
         </LinearLayout>
