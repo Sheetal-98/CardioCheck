@@ -20,9 +20,9 @@ public class DownModel {
         Link = link;
     }
 
-    public DownModel(String name1, String name){
-        this.Link=Link;
-        this.Name=Name;
+    public DownModel(String name, String link){
+        this.Link=link;
+        this.Name=name;
 
     }
 }
